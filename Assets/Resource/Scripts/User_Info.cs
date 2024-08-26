@@ -107,6 +107,8 @@ public class User_Info : MonoBehaviour
         if (isExistSaveFile > 0)
         {
             PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt("isExistSaveFile", 0);
+            PlayerPrefs.Save();
         }
     }
 }

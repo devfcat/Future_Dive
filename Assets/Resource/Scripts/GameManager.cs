@@ -80,7 +80,6 @@ public class GameManager : MonoBehaviour
         {
             // 나가기 팝업
         }
-
     }
 
     public void SetState(eState state, int day = 0)
