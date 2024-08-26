@@ -7,6 +7,7 @@ using UnityEditor;
 namespace EasyAspectRatio 
 {
     [AddComponentMenu("Easy Aspect Ratio/Aspect Ratio Control")]
+    // 시작할 때 비율을 맞추고, 스크린 크기가 변경되면 다시 비율을 맞추도록 하는 기능
     public class AspectRatioControl : MonoBehaviour
     {
         public Vector2 targetAspectRatio = new Vector2(16.0f, 9.0f);
@@ -32,6 +33,9 @@ namespace EasyAspectRatio
             }
         }
 
+        /// <summary>
+        /// 설정한 값으로 화면 비율 조정
+        /// </summary>
         public void Resize_Window()
         {
             // set the desired aspect ratio
