@@ -29,6 +29,7 @@ public class Calendar : MonoBehaviour
     {
         isReadyEnd = false; // 준비중
 
+        User_Info.Instance.Get_Data();
         // 가장 최근까지 플레이한 내용을 가져옴
         lastDay = User_Info.Instance.playDay;
 

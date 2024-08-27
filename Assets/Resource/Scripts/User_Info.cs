@@ -19,7 +19,7 @@ public class User_Info : MonoBehaviour
     
     [Header("세이브 내역")]
     [ReadOnly] public int isExistSaveFile = 0;
-    [ReadOnly] public int playDay;
+    [ReadOnly] public int playDay; // 활성화된 일수
     [ReadOnly] public int saved_like;
     [ReadOnly] public int saved_truth;
     [ReadOnly] public int saved_asmodeus;
@@ -105,15 +105,22 @@ public class User_Info : MonoBehaviour
         PlayerPrefs.SetInt("isExistSaveFile", 1);
 
         PlayerPrefs.Save();
+
+        Get_Data();
     }
 
     public void Reset_Data()
     {
-        Get_Data();
-
         if (isExistSaveFile > 0)
         {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.DeleteKey("playDay");
+            PlayerPrefs.DeleteKey("saved_like");
+            PlayerPrefs.DeleteKey("saved_truth");
+            PlayerPrefs.DeleteKey("saved_asmodeus");
+            PlayerPrefs.DeleteKey("isOpenHE");
+            PlayerPrefs.DeleteKey("isOpenFE");
+            PlayerPrefs.DeleteKey("isOpenBE");
+
             PlayerPrefs.SetInt("isExistSaveFile", 0);
             PlayerPrefs.Save();
         }
@@ -121,5 +128,7 @@ public class User_Info : MonoBehaviour
         {
             // 이미 세이브파일이 없음
         }
+
+        Get_Data();
     }
 }
