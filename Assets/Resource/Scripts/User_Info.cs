@@ -26,6 +26,7 @@ public class User_Info : MonoBehaviour
     [ReadOnly] public int isOpenHE = 0;
     [ReadOnly] public int isOpenBE = 0;
     [ReadOnly] public int isOpenFE = 0;
+
     // [ReadOnly] public List<int> unLockedIllust;
 
     private static User_Info instance;
@@ -54,8 +55,11 @@ public class User_Info : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+
+        Get_Data();
     }
 
+    // 저장되어 있는 데이터들을 가져옴
     public void Get_Data()
     {
         try
@@ -90,6 +94,9 @@ public class User_Info : MonoBehaviour
         {
             // 세이브 없음
         }
+
+        // 소리 설정 가져옴
+        SoundManager.Instance.Load_Settings();
     }
 
     public void Set_Data(string dataName, int data)
@@ -109,6 +116,10 @@ public class User_Info : MonoBehaviour
             PlayerPrefs.DeleteAll();
             PlayerPrefs.SetInt("isExistSaveFile", 0);
             PlayerPrefs.Save();
+        }
+        else
+        {
+            // 이미 세이브파일이 없음
         }
     }
 }
