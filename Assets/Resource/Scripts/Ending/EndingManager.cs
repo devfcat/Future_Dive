@@ -35,7 +35,24 @@ public class EndingManager : MonoBehaviour
 
     public void Start()
     {
+        Save_State(num_Chapter);
         Init();
+    }
+
+    public void Save_State(int num)
+    {
+        switch (num)
+        {
+            case 100:
+                User_Info.Instance.Set_Data("isOpenHE", 1);
+                break;
+            case 200:
+                User_Info.Instance.Set_Data("isOpenBE", 1);
+                break;
+            case 300:
+                User_Info.Instance.Set_Data("isOpenFE", 1);
+                break;
+        }
     }
 
     // 스토리 조회를 위한 초기화

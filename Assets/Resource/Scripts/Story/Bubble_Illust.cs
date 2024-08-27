@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 public class Bubble_Illust : MonoBehaviour
 {
+    public int illustNum;
+    
     [Header("일러스트 말풍선에 대사가 있는가 / 대사 등장 딜레이")]
     public bool isHasDialogue = false;
     public float dialogue_Delay = 3f;
@@ -43,6 +45,9 @@ public class Bubble_Illust : MonoBehaviour
     public void Init_Illust()
     {
         target_Illust.SetActive(true);
+
+        // 일러스트 해금
+        User_Info.Instance.Set_Data("isOpen_illust_" + illustNum, 1);
     }
 
     // 대사가 있다면 지연하여 띄움
