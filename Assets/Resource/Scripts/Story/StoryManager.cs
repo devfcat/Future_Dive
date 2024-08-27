@@ -80,7 +80,7 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-     // 이전 화면으로 돌아가기
+    // 이전 화면으로 돌아가기
     public void Onclick_BackToMenu()
     {
         // 메뉴로 돌아가겠냐는 팝업을 띄움
@@ -108,6 +108,7 @@ public class StoryManager : MonoBehaviour
         // 스탯 점수 계산해서 해당 엔딩으로 연결
         if (state_like > 0)
         {
+            User_Info.Instance.Set_Data("isOpenHE", 1);
             GameManager.Instance.SetState(eState.Ending_H);
         }
         else
