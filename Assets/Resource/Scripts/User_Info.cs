@@ -95,6 +95,15 @@ public class User_Info : MonoBehaviour
             // 세이브 없음
         }
 
+        try
+        {
+            UserName = PlayerPrefs.GetString("UserName"); // 유저 이름은 내 프로필 창에서 변경가능하도록
+        }
+        catch
+        {
+            UserName = "";
+        }
+
         // 소리 설정 가져옴
         SoundManager.Instance.Load_Settings();
     }
@@ -104,6 +113,14 @@ public class User_Info : MonoBehaviour
         PlayerPrefs.SetInt(dataName, data);
         PlayerPrefs.SetInt("isExistSaveFile", 1);
 
+        PlayerPrefs.Save();
+
+        Get_Data();
+    }
+
+    public void Set_Name(string name)
+    {
+        PlayerPrefs.SetString("UserName", name);
         PlayerPrefs.Save();
 
         Get_Data();

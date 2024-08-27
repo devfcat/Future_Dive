@@ -21,7 +21,6 @@ public class BTN_Day : MonoBehaviour
     public void Init()
     {
         TMP_day.text = day.ToString();
-        this.GetComponent<Button>().onClick.AddListener(Onclick);
     }
 
     public void Onclick()
