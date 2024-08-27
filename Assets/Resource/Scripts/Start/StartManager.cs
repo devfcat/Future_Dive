@@ -9,6 +9,7 @@ public class StartManager : MonoBehaviour
 {
     [Header("팝업")]
     public GameObject popUp_Info;
+    public GameObject popUp_WannaReset;
 
     [Header("버튼")]
     public GameObject BTN_NewStart;
@@ -43,9 +44,20 @@ public class StartManager : MonoBehaviour
         else
         {
             // 세이브가 있는데 새로 시작할지 물어보는 팝업 띄움
+            Open_WannaReset();
         }
+    }
 
-        // GameManager.Instance.SetState(eState.Calendar);
+    public void Open_WannaReset()
+    {
+        popUp_WannaReset.SetActive(true);
+    }
+
+    public void Reset()
+    {
+        popUp_WannaReset.SetActive(false);
+        User_Info.Instance.Reset_Data();
+        Start_NewGame();
     }
 
     public void Start_LoadGame()

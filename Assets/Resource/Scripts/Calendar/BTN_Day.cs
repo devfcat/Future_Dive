@@ -14,6 +14,7 @@ public class BTN_Day : MonoBehaviour
 
     public void Start()
     {
+        // 내용 초기화
         TMP_day.text = "";
     }
 
