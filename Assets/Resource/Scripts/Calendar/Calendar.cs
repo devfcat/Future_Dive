@@ -15,6 +15,10 @@ public class Calendar : MonoBehaviour
     public int lastDay;
     public bool isReadyEnd = false;
 
+    [Header("달력 일수 색상")]
+    public Color gray = new Color(100,100,120);
+    public Color white = Color.white;
+
     public void Start()
     {
         Setting();
@@ -33,13 +37,13 @@ public class Calendar : MonoBehaviour
         {
             BTN_Days[i].GetComponent<Button>().enabled = false;
             BTN_Days[i].transform.GetChild(0).gameObject.SetActive(false);
-            BTN_Days[i].SetActive(false);
+            BTN_Days[i].GetComponent<Image>().color = gray;
         }
 
         // 해당하는 날짜까지 달력 활성화
         for (int i = 0; i < lastDay; i++)
         {
-            BTN_Days[i].SetActive(true);
+            BTN_Days[i].GetComponent<Image>().color = white;
         }
 
         // 마지막 날(가장 최근 해금)만 접근 가능하게 설정
