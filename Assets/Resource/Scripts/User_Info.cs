@@ -27,7 +27,16 @@ public class User_Info : MonoBehaviour
     [ReadOnly] public int isOpenBE = 0;
     [ReadOnly] public int isOpenFE = 0;
 
-    // [ReadOnly] public List<int> unLockedIllust;
+    [Header("일러스트 해금 내역")]
+    public int illust_size;
+    [ReadOnly] public int isOpen_illust_00;
+    [ReadOnly] public int isOpen_illust_01;
+    [ReadOnly] public int isOpen_illust_02;
+    [ReadOnly] public int isOpen_illust_03;
+    [ReadOnly] public int isOpen_illust_04;
+    [ReadOnly] public int isOpen_illust_05;
+    [ReadOnly] public int isOpen_illust_06;
+
 
     private static User_Info instance;
     public static User_Info Instance
@@ -80,10 +89,6 @@ public class User_Info : MonoBehaviour
                 saved_like = PlayerPrefs.GetInt("saved_like");
                 saved_truth = PlayerPrefs.GetInt("saved_truth");
                 saved_asmodeus = PlayerPrefs.GetInt("saved_asmodeus");
-
-                isOpenHE = PlayerPrefs.GetInt("isOpenHE");
-                isOpenFE = PlayerPrefs.GetInt("isOpenFE");
-                isOpenBE = PlayerPrefs.GetInt("isOpenBE");
             }
             catch
             {
@@ -104,6 +109,20 @@ public class User_Info : MonoBehaviour
             UserName = "";
         }
 
+        try
+        {
+            isOpenHE = PlayerPrefs.GetInt("isOpenHE");
+            isOpenFE = PlayerPrefs.GetInt("isOpenFE");
+            isOpenBE = PlayerPrefs.GetInt("isOpenBE");
+        }
+        catch
+        {
+
+        }
+
+        isOpen_illust_00 = PlayerPrefs.GetInt("isOpen_illust_00");
+
+
         // 소리 설정 가져옴
         SoundManager.Instance.Load_Settings();
     }
@@ -111,7 +130,11 @@ public class User_Info : MonoBehaviour
     public void Set_Data(string dataName, int data)
     {
         PlayerPrefs.SetInt(dataName, data);
-        PlayerPrefs.SetInt("isExistSaveFile", 1);
+
+        if (dataName == "playDay")
+        {
+            PlayerPrefs.SetInt("isExistSaveFile", 1);
+        }
 
         PlayerPrefs.Save();
 
@@ -134,9 +157,6 @@ public class User_Info : MonoBehaviour
             PlayerPrefs.DeleteKey("saved_like");
             PlayerPrefs.DeleteKey("saved_truth");
             PlayerPrefs.DeleteKey("saved_asmodeus");
-            PlayerPrefs.DeleteKey("isOpenHE");
-            PlayerPrefs.DeleteKey("isOpenFE");
-            PlayerPrefs.DeleteKey("isOpenBE");
 
             PlayerPrefs.SetInt("isExistSaveFile", 0);
             PlayerPrefs.Save();
