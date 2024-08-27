@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -31,6 +32,7 @@ public class Dialogue_Manager : MonoBehaviour
 {
     [Tooltip("로딩중인가")] public bool isLoading = false;
     [Tooltip("임시저장된 대사 데이터")] public List<Dialogue> Temp_Dialogue;
+    [ReadOnly] public string Default_PlayerName = "";
     
     private static Dialogue_Manager instance;
     public static Dialogue_Manager Instance
