@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 
+/// 스플래시 관리
 /// </summary>
 public class SplashManager : MonoBehaviour
 {
