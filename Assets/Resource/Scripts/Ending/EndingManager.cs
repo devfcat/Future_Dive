@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// 엔딩씬마다 추가해야 하는 매니저 스크립트
+/// </summary>
 public class EndingManager : MonoBehaviour
 {
     [Header("UI")]
@@ -39,6 +42,10 @@ public class EndingManager : MonoBehaviour
         Init();
     }
 
+    /// <summary>
+    /// 현재 열람중인 엔딩을 해금 처리
+    /// </summary>
+    /// <param name="num">해금 처리할 엔딩의 종류</param>
     public void Save_State(int num)
     {
         switch (num)

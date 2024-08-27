@@ -47,7 +47,7 @@ public class Bubble_Illust : MonoBehaviour
         target_Illust.SetActive(true);
 
         // 일러스트 해금
-        User_Info.Instance.Set_Data("isOpen_illust_" + illustNum, 1);
+        User_Info.Instance.Set_Data("isOpen_illust_" + illustNum.ToString(), 1);
     }
 
     // 대사가 있다면 지연하여 띄움
