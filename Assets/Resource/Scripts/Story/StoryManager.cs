@@ -100,6 +100,22 @@ public class StoryManager : MonoBehaviour
         StartCoroutine(Coroutine_StoryEnd(plusDay));
     }
 
+    // 엔딩 씬으로 넘어가는 메서드
+    public void Going_Ending()
+    {
+        int state_like = 0;
+
+        // 스탯 점수 계산해서 해당 엔딩으로 연결
+        if (state_like > 0)
+        {
+            GameManager.Instance.SetState(eState.Ending_H);
+        }
+        else
+        {
+
+        }
+    }
+
     // n일 일수 스토리를 해금하고 달력 메뉴로 돌아감
     IEnumerator Coroutine_StoryEnd(int plusDay)
     {

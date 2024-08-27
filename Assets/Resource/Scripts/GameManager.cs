@@ -10,7 +10,9 @@ public enum eState
     Setting = 3,
     Calendar = 2,
     Story = 4,
-    Ending,
+    Ending_H,
+    Ending_B,
+    Ending_F,
 }
 
 /// <summary>
